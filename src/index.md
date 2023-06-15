@@ -3,23 +3,22 @@
 layout: home
 
 hero:
-  name: "sunwei"
-  text: "sunwei site"
-  tagline: My great project tagline
+  name: "我吃饱了"
+  text: "If you don't pay back the money you owe, your whole family will die."
+  tagline: "欠钱不还死全家! 欠钱不还死全家! 欠钱不还死全家!"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 我的简历
+      link: /jianli/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 我的掘金
+      link: https://juejin.cn/user/2488950054463677/posts
 
 features:
   - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: "If you don't pay back the money you owe, your whole family will die."
   - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: "Please pay back the money you owe as soon as possible."
   - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: "We would appreciate it if you could settle your debt as soon as possible."
 ---
-
