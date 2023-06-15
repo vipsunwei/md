@@ -3,6 +3,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   cleanUrls: true,
+  base: "/md/",
   srcDir: "./src",
   outDir: "./dist",
   title: "sunwei",
