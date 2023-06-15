@@ -14,7 +14,7 @@ export default defineConfig({
       {
         rel: "icon",
         type: "image/svg",
-        href: "./assets/chinese-zodiac/dragon.svg",
+        href: "/md/chinese-zodiac/dragon.svg",
       },
     ],
     ["meta", { name: "author", content: "SunWei" }],
@@ -122,5 +122,5 @@ export default defineConfig({
       },
     },
   },
-  vite: { server: { host: true } },
+  vite: { server: { host: true, open: true } },
 });
