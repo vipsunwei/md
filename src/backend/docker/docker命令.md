@@ -2,7 +2,7 @@
 
 ## 服务相关命令
 
-启动 `docker` 服务
+### 启动 `docker` 服务
 
 ```sh
 
@@ -10,7 +10,7 @@ systemctl start docker
 
 ```
 
-停止 `docker` 服务
+### 停止 `docker` 服务
 
 ```sh
 
@@ -18,7 +18,7 @@ systemctl stop docker
 
 ```
 
-重启 `docker` 服务
+### 重启 `docker` 服务
 
 ```sh
 
@@ -26,7 +26,7 @@ systemctl restart docker
 
 ```
 
-查看 `docker` 服务状态
+### 查看 `docker` 服务状态
 
 ```sh
 
@@ -34,7 +34,7 @@ systemctl status docker
 
 ```
 
-设置开机启动 `docker` 服务
+### 设置开机启动 `docker` 服务
 
 ```sh
 
@@ -44,7 +44,7 @@ systemctl enable docker
 
 ## 镜像相关命令
 
-搜索镜像
+### 搜索镜像
 
 ```sh
 
@@ -56,7 +56,7 @@ docker search tomcat
 
 ![docker-search-result](./assets/docker-search-result.png)
 
-拉取镜像
+### 拉取镜像
 
 ```sh
 
@@ -90,7 +90,7 @@ docker pull tomcat
 
 ![tomcat-supported-tag](./assets/tomcat-supported-tag.png)
 
-使用`Dockerfile`构建镜像
+### 使用`Dockerfile`构建镜像
 
 ```sh
 
@@ -109,7 +109,44 @@ docker build -t -f /path/to/Dockerfile image_name:tag .
 
 其中，`.` 表示当前目录. 这里先不细讲如何编写`Dockerfile`了
 
-查看本地镜像
+简单列举几个指令:
+
+- FROM : 指定基础镜像
+- WORKDIR : 指定工作目录
+- COPY : 将文件或者目录从构建上下文复制到容器中(推荐)
+- ADD : 将文件或者目录从构建上下文复制到容器中,并且会将压缩文件解压缩,支持 URL
+- RUN : 在容器中执行命令
+- CMD : 容器启动时执行的命令
+- EXPOSE : 指定要监听的端口以实现与外部通信
+
+举个例子:
+
+```Dockerfile
+# nodejs server Dockerfile
+
+FROM node
+# or
+FROM node:16
+
+WORKDIR /nodeApp
+
+# COPY <宿主机目录或文件路径> <容器内目录或文件路径>
+COPY ./package.json .
+# ADD <宿主机目录或文件路径> <容器内目录或文件路径>
+
+# shell格式：就像在命令行中输入的Shell脚本命令一样。
+RUN npm install
+
+COPY ./src ./server
+
+EXPOSE 8000
+
+CMD ["node", "./server/index.js"]
+```
+
+详细了解请查看这篇[纯干货！Docker Dockerfile 指令大全](https://zhuanlan.zhihu.com/p/419175543)
+
+### 查看本地镜像
 
 ```sh
 
@@ -129,7 +166,7 @@ docker images -q
 
 ```
 
-删除本地镜像
+### 删除本地镜像
 
 ```sh
 
@@ -143,7 +180,7 @@ docker rmi 2be84dd575ee
 
 :::tip
 
-为了准确删除你的目标镜像, 建议删除有多个版本存在的镜像时, 使用镜像名+版本, 如果二者镜像 `ID` 不同也可以使用镜像 `ID` 进行删除, 防止误删
+为了准确删除你的目标镜像, 建议删除有多个版本存在的镜像时, 使用镜像名:版本号, 如果二者镜像 `ID` 不同也可以使用镜像 `ID` 进行删除, 防止误删
 
 :::
 
@@ -173,7 +210,7 @@ docker rmi `docker images -q`
 
 :::
 
-导出镜像
+### 导出镜像
 
 ```sh
 # docker save -o 给导出的镜像压缩包起个文件名 要导出的镜像名:版本号
@@ -181,7 +218,7 @@ docker save -o image.tar target_image:tag
 
 ```
 
-导入镜像
+### 导入镜像
 
 ```sh
 # docker load -i 指定要导入的镜像压缩包文件名
@@ -199,7 +236,7 @@ docker images
 
 ## 容器相关命令
 
-创建容器
+### 创建容器
 
 ```sh
 
@@ -224,7 +261,7 @@ docker run -d --name=my_container -p 8080:8080 tomcat:latest
 
 :::
 
-查看容器列表
+### 查看容器列表
 
 ```sh
 # 查看正在运行的容器列表
@@ -250,7 +287,7 @@ docker ps -aq
 查看正在运行的容器 `ID` 列表
 ![docker-ps-q](./assets/docker-ps-q.png)
 
-停止运行的容器
+### 停止运行的容器
 
 ```sh
 # 使用容器名停止
@@ -268,7 +305,7 @@ docker stop `docker ps -q`
 使用容器 `ID` 停止多个正在运行的容器
 ![docker-stop-q](./assets/docker-stop-q.png)
 
-启动已停止的容器
+### 启动已停止的容器
 
 ```sh
 # 容器名
@@ -289,7 +326,7 @@ docker start `docker ps -aq`
 使用多个容器 `ID` 启动
 ![docker-start-aq](./assets/docker-start-aq.png)
 
-删除容器
+### 删除容器
 
 ```sh
 # 用容器名删除
@@ -306,7 +343,7 @@ docker rm `docker ps -aq`
 
 ![docker-rm-aq](./assets/docker-rm-aq.png)
 
-进入容器(正在运行的容器才可以进入)
+### 进入容器(正在运行的容器才可以进入)
 
 ```sh
 # 使用容器名
@@ -321,7 +358,7 @@ docker exec -it container_id /bin/sh
 进入容器后
 ![docker-exec-it](./assets/docker-exec-it.png)
 
-查看容器信息
+### 查看容器信息
 
 ```sh
 # 容器名
