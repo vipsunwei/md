@@ -107,24 +107,24 @@ docker build -t -f /path/to/Dockerfile image_name:tag .
 
 ```
 
-其中，`.` 表示当前目录. 这里先不细讲如何编写`Dockerfile`了
+其中，`.` 表示当前目录.
 
-简单列举几个指令:
+`Dockerfile` 简单列举几个指令:
 
-- FROM : 指定基础镜像
-- WORKDIR : 指定工作目录
-- COPY : 将文件或者目录从构建上下文复制到容器中(推荐)
-- ADD : 将文件或者目录从构建上下文复制到容器中,并且会将压缩文件解压缩,支持 URL
-- RUN : 在容器中执行命令
-- CMD : 容器启动时执行的命令
-- EXPOSE : 指定要监听的端口以实现与外部通信
+- `FROM` : 指定基础镜像
+- `WORKDIR` : 指定工作目录
+- `COPY` : 将文件或者目录从构建上下文复制到容器中(推荐)
+- `ADD` : 将文件或者目录从构建上下文复制到容器中,并且会将压缩文件解压缩,支持 `URL`
+- `RUN` : 在容器中执行命令
+- `CMD` : 容器启动时执行的命令
+- `EXPOSE` : 指定要监听的端口以实现与外部通信
 
 举个例子:
 
 ```Dockerfile
 # nodejs server Dockerfile
 
-FROM node
+# FROM node
 # or
 FROM node:16
 
@@ -133,6 +133,7 @@ WORKDIR /nodeApp
 # COPY <宿主机目录或文件路径> <容器内目录或文件路径>
 COPY ./package.json .
 # ADD <宿主机目录或文件路径> <容器内目录或文件路径>
+# ADD ./package.json .
 
 # shell格式：就像在命令行中输入的Shell脚本命令一样。
 RUN npm install
