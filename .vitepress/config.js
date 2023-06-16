@@ -31,7 +31,11 @@ export default defineConfig({
         link: "/frontend/2023/vite+vue3+eslint+prettier",
         activeMatch: "/frontend/",
       },
-      { text: "后端", link: "/backend/api-examples", activeMatch: "/backend/" },
+      {
+        text: "后端",
+        link: "/backend/docker/docker命令",
+        activeMatch: "/backend/",
+      },
       { text: "简历", link: "/jianli/", activeMatch: "/jianli/" },
     ],
 
@@ -90,8 +94,9 @@ export default defineConfig({
       "/backend/": [
         {
           collapsed: true,
-          text: "backend",
+          text: "Docker",
           items: [
+            { text: "Docker命令", link: "/backend/docker/docker命令" },
             { text: "Api Examples", link: "/backend/api-examples" },
             { text: "Markdown Examples", link: "/backend/markdown-examples" },
           ],
