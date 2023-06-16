@@ -8,7 +8,7 @@ export default ({ mode }) => {
   console.log(env);
   const prefix = env.VITE_PREFIX;
   return defineConfig({
-    cleanUrls: true,
+    // cleanUrls: true,
     base: prefix,
     srcDir: "./src",
     outDir: "./md",
