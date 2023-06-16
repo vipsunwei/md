@@ -2,9 +2,11 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
+    "docs:build:staging": "vitepress build --mode=staging",
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
+    "minimist": "^1.2.8",
     "vitepress": "^1.0.0-beta.2"
   }
 }

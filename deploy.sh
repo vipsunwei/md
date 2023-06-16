@@ -1,8 +1,6 @@
-#! /bin/bash
+#! /bin/sh
 
 set -e
 
-rm -rf ./dist
-
-npm run docs:build
+npm run docs:build:staging
 
