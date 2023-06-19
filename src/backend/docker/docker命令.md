@@ -103,11 +103,17 @@ docker build -t my_image:1.0 .
 
 ```sh
 
-docker build -t -f /path/to/Dockerfile image_name:tag .
+docker build -f /path/to/Dockerfile -t image_name:tag .
 
 ```
 
-其中，`.` 表示当前目录.
+其中，
+
+- `.` 表示当前目录.
+- `-f` , `--file` Name of the Dockerfile (Default is PATH/Dockerfile)
+- `-t` , `--tag` Name and optionally a tag in the name:tag format
+
+[docker build [OPTIONS]文档](https://docs.docker.com/engine/reference/commandline/build/#options)
 
 `Dockerfile` 简单列举几个指令:
 
