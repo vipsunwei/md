@@ -191,6 +191,14 @@ docker rmi 2be84dd575ee
 
 :::
 
+删除`tag`为`none`的镜像
+
+```sh
+
+docker rmi `docker images -f "dangling=true" -q`
+
+```
+
 全部删除本地镜像
 
 ```sh
@@ -259,6 +267,7 @@ docker run -d --name=my_container -p 8080:8080 tomcat:latest
 - `-t`: 为容器重新分配一个伪输入终端，通常与 `-i` 同时使用；
 - `--name=my_container`: 为容器指定一个名称；
 - `--dns 8.8.8.8`: 指定容器使用的`DNS`服务器，默认和宿主一致；
+- `--rm`: 退出容器后会自动删除该容器；
 
 你可以根据你的需求来选择相应的参数。最后是使用的镜像名和版本号
 

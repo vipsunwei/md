@@ -106,6 +106,10 @@ export default ({ mode }) => {
                 text: "Node.js读取NetCDF文件",
                 link: "/backend/nodejs/nodejs-read-nc",
               },
+              {
+                text: "Node.js连接虚谷数据库",
+                link: "/backend/nodejs/nodejs-xugu",
+              },
             ],
           },
           {
