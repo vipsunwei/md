@@ -11,11 +11,3 @@ scp -i ~/vipsunwei.pem $PWD/md.zip ec2-user@13.125.196.197:/home/ec2-user/nginx/
 rm -f $PWD/md.zip
 
 ssh -i ~/vipsunwei.pem ec2-user@13.125.196.197 "rm -rf nginx/html/md.bak && mv nginx/html/md nginx/html/md.bak && unzip nginx/html/md.zip -d nginx/html/ && rm -f nginx/html/md.zip && exit"
-
-
-# mv $PWD/nginx/html/md $PWD/nginx/html/md_copy
-
-# cd $PWD/nginx/html
-
-# unzip ./md.zip
-
