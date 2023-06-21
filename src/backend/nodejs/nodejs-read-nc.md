@@ -4,7 +4,17 @@ theme: channing-cyan
 
 # 如何用 `Node.js`+`netcdfjs` 轻松读取 `NetCDF` 格式的气象数据
 
-**`netcdfjs`** 是一个 `JavaScript` 库，可以用于读取和探索 `NetCDF` 文件。您可以通过运行 `npm i netcdfjs` 将其用于您的项目, 据说它不仅可以在`Node.js`环境中使用,还可以在浏览器端使用。[`netcdfjs`传送门](https://github.com/cheminfo/netcdfjs)
+## 安装 `netcdfjs`
+
+**`netcdfjs`** 是一个 `JavaScript` 库，可以用于读取和探索 `NetCDF` 文件。您可以通过运行
+
+```sh
+npm i netcdfjs
+```
+
+将其用于您的项目, 据说它不仅可以在`Node.js`环境中使用,还可以在浏览器端使用。[`netcdfjs`传送门](https://github.com/cheminfo/netcdfjs)
+
+## 读取数据
 
 以下是使用 **`netcdfjs`** 的示例代码：
 
@@ -42,6 +52,8 @@ const dimensions = reader.dimensions;
 ```
 
 更多`API`信息请查看[`API Documentation`](https://cheminfo.github.io/netcdfjs/)
+
+## 处理数据
 
 接下来的目标是根据`lon`和`lat`的`size`, 将`varData`转换成一个二维数组, 因为`size`其实和数组的`length`是一样的, 所以下面我们直接用数组的长度进行转换, 就不用`dimensions`去获取`lon`和`lat`的`size`了.
 
