@@ -100,9 +100,23 @@ export default ({ mode }) => {
         "/backend/": [
           {
             collapsed: true,
-            text: "Docker",
+            text: "Node.js",
             items: [
-              { text: "Docker命令", link: "/backend/docker/docker命令" },
+              {
+                text: "Node.js读取NetCDF文件",
+                link: "/backend/nodejs/nodejs-read-nc",
+              },
+            ],
+          },
+          {
+            collapsed: true,
+            text: "Docker",
+            items: [{ text: "Docker命令", link: "/backend/docker/docker命令" }],
+          },
+          {
+            collapsed: true,
+            text: "Examples",
+            items: [
               { text: "Api Examples", link: "/backend/api-examples" },
               { text: "Markdown Examples", link: "/backend/markdown-examples" },
             ],
