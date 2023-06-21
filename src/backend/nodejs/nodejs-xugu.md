@@ -84,3 +84,21 @@ Query.on("result", function (row) {
 conn.end();
 /**/
 ```
+
+## 构建镜像
+
+```sh
+
+docker build -t node_xugu:1.0 .
+
+```
+
+## 运行容器测试一下
+
+```sh
+
+docker run --rm -it node_xugu:1.0
+
+```
+
+如果正确打印出查询结果就`OK`啦 ✌🏻
