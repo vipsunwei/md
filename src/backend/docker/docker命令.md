@@ -397,3 +397,32 @@ docker inspect container_id
 
 内容很多一张截图放不下, 自己查查看吧
 ![docker-inspect](./assets/docker-inspect.png)
+
+### 容器与宿主机之间的数据拷贝
+
+- 将容器中目录或文件拷贝到宿主机
+
+```bash
+# 将容器中 /app/html 目录拷贝到宿主机 /mnt/ 目录中
+docker cp container_id:/app/html /mnt/
+# 将容器中 /app/html/index.html 文件拷贝到宿主机 /mnt/dist/ 目录中
+docker cp container_id:/app/html/index.html /mnt/dist/
+```
+
+- 将宿主机目录或文件拷贝到容器中
+
+```bash
+# 将宿主机 /mnt/dist 目录拷贝到容器的 /app 目录中
+docker cp /mnt/dist container_id:/app/
+# 将宿主机 /mnt/dist/index.html 文件拷贝到容器的 /app/html 目录中
+docker cp /mnt/dist/index.html container_id:/app/html/
+```
+
+- 将宿主机`/mnt/dist`目录拷贝到容器中, 并重命名为`html`
+
+```bash
+# 将宿主机 /mnt/dist 目录拷贝到容器的 /app/ 中重命名为 html
+docker cp /mnt/dist container_id:/app/html
+# 将宿主机 /mnt/dist/index1.html 文件拷贝到容器的 /app/html/ 中重命名为 index.html
+docker cp /mnt/dist/index1.html container_id:/app/html/index.html
+```
