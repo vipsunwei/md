@@ -4,7 +4,7 @@
 
 ### 启动 `docker` 服务
 
-```sh
+```bash
 
 systemctl start docker
 
@@ -12,7 +12,7 @@ systemctl start docker
 
 ### 停止 `docker` 服务
 
-```sh
+```bash
 
 systemctl stop docker
 
@@ -20,7 +20,7 @@ systemctl stop docker
 
 ### 重启 `docker` 服务
 
-```sh
+```bash
 
 systemctl restart docker
 
@@ -28,7 +28,7 @@ systemctl restart docker
 
 ### 查看 `docker` 服务状态
 
-```sh
+```bash
 
 systemctl status docker
 
@@ -36,7 +36,7 @@ systemctl status docker
 
 ### 设置开机启动 `docker` 服务
 
-```sh
+```bash
 
 systemctl enable docker
 
@@ -46,7 +46,7 @@ systemctl enable docker
 
 ### 搜索镜像
 
-```sh
+```bash
 
 docker search tomcat
 
@@ -58,7 +58,7 @@ docker search tomcat
 
 ### 拉取镜像
 
-```sh
+```bash
 
 docker pull tomcat
 
@@ -92,7 +92,7 @@ docker pull tomcat
 
 ### 使用`Dockerfile`构建镜像
 
-```sh
+```bash
 
 # docker build -t 镜像名:版本号 .  注意最后边的点 `.` 表示当前目录, 别丢了.
 docker build -t my_image:1.0 .
@@ -101,7 +101,7 @@ docker build -t my_image:1.0 .
 
 `Docker` `build` 命令可以使用 `Dockerfile` 来构建镜像。默认情况下，`Dockerfile` 文件位于构建上下文的根目录下，因此 `docker build` 命令会自动读取上下文根路径下名为 `Dockerfile` 的文件。如果 `Dockerfile` 文件不在根目录下，可以使用 `-f` 选项来指定 `Dockerfile` 文件的路径。例如，以下命令将使用 `/path/to/Dockerfile` 文件构建镜像：
 
-```sh
+```bash
 
 docker build -f /path/to/Dockerfile -t image_name:tag .
 
@@ -155,7 +155,7 @@ CMD ["node", "./server/index.js"]
 
 ### 查看本地镜像
 
-```sh
+```bash
 
 docker images
 
@@ -167,7 +167,7 @@ docker images
 
 查看本地镜像 `ID`
 
-```sh
+```bash
 
 docker images -q
 
@@ -175,7 +175,7 @@ docker images -q
 
 ### 删除本地镜像
 
-```sh
+```bash
 
 docker rmi mysql:5.7
 
@@ -193,7 +193,7 @@ docker rmi 2be84dd575ee
 
 删除`tag`为`none`的镜像
 
-```sh
+```bash
 
 docker rmi `docker images -f "dangling=true" -q`
 
@@ -201,7 +201,7 @@ docker rmi `docker images -f "dangling=true" -q`
 
 全部删除本地镜像
 
-```sh
+```bash
 
 docker rmi `docker images -q`
 
@@ -227,15 +227,15 @@ docker rmi `docker images -q`
 
 ### 导出镜像
 
-```sh
-# docker save -o 给导出的镜像压缩包起个文件名 要导出的镜像名:版本号
+```bash
+# docker save -o 给导出的镜像压缩包起个文件名 要导出的镜像名:版本号(推荐) 或者 镜像ID也可以
 docker save -o image.tar target_image:tag
 
 ```
 
 ### 导入镜像
 
-```sh
+```bash
 # docker load -i 指定要导入的镜像压缩包文件名
 docker load -i image.tar
 
@@ -243,17 +243,26 @@ docker load -i image.tar
 
 导入成功后就可以使用
 
-```sh
+```bash
 docker images
 ```
 
 查看一下啦
 
+:::tip
+如果用镜像 `ID` 导出的镜像在导入之后是没有名字和`tag`的, 这种情况我们可以使用 `docker tag` 给镜像改名字
+:::
+
+```bash
+docker tag 镜像ID new_image_name:tag
+
+```
+
 ## 容器相关命令
 
 ### 创建容器
 
-```sh
+```bash
 
 docker run -d --name=my_container -p 8080:8080 tomcat:latest
 
@@ -279,7 +288,7 @@ docker run -d --name=my_container -p 8080:8080 tomcat:latest
 
 ### 查看容器列表
 
-```sh
+```bash
 # 查看正在运行的容器列表
 docker ps
 
@@ -305,7 +314,7 @@ docker ps -aq
 
 ### 停止运行的容器
 
-```sh
+```bash
 # 使用容器名停止
 docker stop my_container
 
@@ -323,7 +332,7 @@ docker stop `docker ps -q`
 
 ### 启动已停止的容器
 
-```sh
+```bash
 # 容器名
 docker start my_container
 
@@ -344,7 +353,7 @@ docker start `docker ps -aq`
 
 ### 删除容器
 
-```sh
+```bash
 # 用容器名删除
 docker rm my_container
 
@@ -361,13 +370,13 @@ docker rm `docker ps -aq`
 
 ### 进入容器(正在运行的容器才可以进入)
 
-```sh
+```bash
 # 使用容器名
-docker exec -it my_container /bin/sh
+docker exec -it my_container /bin/bash
 
 # or
 # 使用容器ID
-docker exec -it container_id /bin/sh
+docker exec -it container_id /bin/bash
 
 ```
 
@@ -376,7 +385,7 @@ docker exec -it container_id /bin/sh
 
 ### 查看容器信息
 
-```sh
+```bash
 # 容器名
 docker inspect my_container
 
