@@ -14,20 +14,23 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4.0.0
         with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
+          version: 9.11.0 # 你可以指定你使用的 pnpm 版本
+      - uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20.16.0
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
       - name: Build
-        run: npm run docs:build
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+        run: pnpm run docs:build
+      - uses: actions/configure-pages@v5.0.0
+      - uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: md
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4.0.5
