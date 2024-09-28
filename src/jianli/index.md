@@ -10,9 +10,10 @@
 联系方式：`15321316676`  
 邮箱：<a href="mailto:908241555@qq.com" title="发邮件">`908241555@qq.com`</a>  
 所在城市：北京  
-职业意向：前端高级工程师  
-期望薪资：待定  
-入职时间：待定
+职业意向：前端高级工程师
+
+<!-- 期望薪资：待定   -->
+<!-- 入职时间：待定 -->
 
 ## 个人简介
 
@@ -127,11 +128,11 @@
 
 ---
 
-个人博客：[**vipsunwei.com**](https://vipsunwei.com)  
+个人博客：[**md.vipsunwei.com**](https://md.vipsunwei.com)  
 知乎：[https://www.zhihu.com/people/vipsunwei/posts](https://www.zhihu.com/people/vipsunwei/posts)  
 掘金：[https://juejin.cn/user/2488950054463677/posts](https://juejin.cn/user/2488950054463677/posts)
 
-## 联系我吧！
+## 联系我
 
 ---
 
